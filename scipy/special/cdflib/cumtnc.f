@@ -153,15 +153,6 @@ C     Thus t is effectively infinite
 
       END IF
 
-C     Case bcent and bbcent are essentially one
-C     Thus t is effectively zero
-
-      IF ((dum1+dum2).LT.tiny) THEN
-          CALL cumnor(-pnonc,cum,ccum)
-          RETURN
-
-      END IF
-
 C     First term in ccum is D*B + E*BB
 
       ccum = dcent*bcent + ecent*bbcent
