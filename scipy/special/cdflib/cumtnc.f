@@ -100,8 +100,14 @@ C     Case pnonc essentially zero
       END IF
 
       lambda = half*pnonc2
-      x = df/ (df+t2)
-      omx = one - x
+
+      IF (df.LE.t2) THEN
+          x = df/ (df+t2)
+          omx = one - x
+      ELSE
+          omx = t2/ (df+t2)
+          x = one - omx
+      END IF
 
       lnx = log(x)
       lnomx = log(omx)
